@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools & Metal Syndicate — Your Industrial Supplier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #8B1A1A;
+    --red-deep: #5C1010;
+    --gold: #C8960A;
+    --gold-light: #E8B020;
+    --ink: #111111;
+    --ink-mid: #333333;
+    --ink-light: #666666;
+    --surface: #F7F5F2;
+    --white: #FFFFFF;
+    --rule: #E0DDD8;
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--white);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 60px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 34px;
+    height: 34px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .nav-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .nav-name span {
+    display: block;
+    font-weight: 300;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--red);
+    color: #fff !important;
+    padding: 8px 18px;
+    font-size: 11px !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-deep) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-left {
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 7vw, 88px);
+    font-weight: 700;
+    line-height: 0.92;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    letter-spacing: -1px;
+  }
+
+  .hero-headline em {
+    font-style: normal;
+    color: var(--red);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 420px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+    padding: 14px 32px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--red-deep); transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.7);
+    padding: 14px 32px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    margin-top: 64px;
+    display: flex;
+    gap: 48px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 36px;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right-inner {
+    position: absolute;
+    inset: 0;
+    background: var(--red-deep);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .hero-img-cell {
+    background: var(--ink-mid);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-img-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    mix-blend-mode: luminosity;
+    transition: opacity 0.3s;
+  }
+
+  .hero-img-cell:hover img { opacity: 0.85; }
+
+  .hero-overlay-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  /* BRANDS STRIP */
+  .brands-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+    overflow: hidden;
+  }
+
+  .brands-label {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+  }
+
+  .brands-scroll {
+    display: flex;
+    gap: 56px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 48px;
+  }
+
+  .brand-item {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .brand-item:hover { color: var(--red); }
+
+  /* SECTION SCAFFOLD */
+  section { padding: 96px 0; }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    gap: 24px;
+  }
+
+  .section-kicker {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-kicker::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 0.95;
+    color: var(--ink);
+  }
+
+  /* PRODUCT CATEGORIES */
+  #products { background: var(--white); }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--rule);
+  }
+
+  .cat-card {
+    background: var(--white);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.25s;
+  }
+
+  .cat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: left;
+  }
+
+  .cat-card:hover { background: var(--surface); }
+  .cat-card:hover::after { transform: scaleX(1); }
+
+  .cat-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 20px;
+    transition: color 0.25s;
+  }
+
+  .cat-card:hover .cat-num { color: #E0D0D0; }
+
+  .cat-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .cat-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .cat-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .cat-brands {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+
+  .cat-arrow {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+    width: 28px;
+    height: 28px;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s;
+  }
+
+  .cat-card:hover .cat-arrow {
+    opacity: 1;
+    transform: translate(3px, -3px);
+  }
+
+  .cat-arrow svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--red);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    background: var(--ink);
+    padding: 80px 0;
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-headline {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 0.95;
+    letter-spacing: -0.5px;
+  }
+
+  .about-headline em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .about-body {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+
+  .about-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .fact-item {
+    border-left: 2px solid var(--red);
+    padding-left: 16px;
+  }
+
+  .fact-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .fact-value {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+
+  /* WHY US */
+  #why { background: var(--surface); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  .why-item {}
+
+  .why-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .why-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--red);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .why-desc {
+    font-size: 13.5px;
+    color: var(--ink-light);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-form-wrap {}
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    appearance: none;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--red);
+    background: var(--white);
+  }
+
+  .form-textarea { min-height: 120px; resize: vertical; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .contact-info {}
+
+  .contact-info-block {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .contact-info-block:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .ci-label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+
+  .ci-value {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.45;
+    letter-spacing: 0.3px;
+  }
+
+  .ci-value a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ci-value a:hover { color: var(--red); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-logo-mark {
+    width: 24px;
+    height: 24px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* FORM SUCCESS */
+  .form-success {
+    display: none;
+    background: #EAF3DE;
+    border-left: 3px solid #3B6D11;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #27500A;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 64px 32px; }
+    .hero-right { height: 320px; position: relative; }
+    .hero-right-inner { position: absolute; inset: 0; }
+    .categories-grid { grid-template-columns: 1fr 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .container { padding: 0 24px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">tms</div>
+    <div class="nav-name">
+      Tools & Metal Syndicate
+      <span>Industrial Supplier</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Enquire Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Chennai's Industrial Supplier Since Decades</div>
+    <h1 class="hero-headline">
+      Built<br>for the<br><em>Industry.</em>
+    </h1>
+    <p class="hero-sub">
+      Your one-point source for leading engineering &amp; industrial brands. From hand tools to heavy fittings — we stock it all.
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Browse Products</a>
+      <a href="#contact" class="btn-outline">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Product Categories</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">50+</div>
+        <div class="hero-stat-label">Global Brands</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">1</div>
+        <div class="hero-stat-label">Point of Contact</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="hero-img-cell">
+        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400&q=70" alt="Power tools" loading="lazy">
+      </div>
+      <div class="hero-img-cell">
+        <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=400&q=70" alt="Industrial work" loading="lazy">
+      </div>
+      <div class="hero-img-cell">
+        <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=400&q=70" alt="Industrial machinery" loading="lazy">
+      </div>
+      <div class="hero-img-cell">
+        <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=70" alt="Engineering tools" loading="lazy">
+        <div class="hero-overlay-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS STRIP -->
+<div class="brands-strip">
+  <div class="brands-label">Trusted Brands We Stock</div>
+  <div class="brands-scroll">
+    <span class="brand-item">Stanley</span>
+    <span class="brand-item">Bosch</span>
+    <span class="brand-item">DeWalt</span>
+    <span class="brand-item">3M</span>
+    <span class="brand-item">Makita</span>
+    <span class="brand-item">SKF</span>
+    <span class="brand-item">ESAB</span>
+    <span class="brand-item">Festo</span>
+    <span class="brand-item">Loctite</span>
+    <span class="brand-item">Mitutoyo</span>
+    <span class="brand-item">Norton</span>
+    <span class="brand-item">Timken</span>
+    <span class="brand-item">WD-40</span>
+    <span class="brand-item">Godrej</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">What We Offer</div>
+        <h2 class="section-title">Product<br>Categories</h2>
+      </div>
+    </div>
+    <div class="categories-grid">
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">01</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z"/></svg>
+        </div>
+        <div class="cat-name">Fasteners &amp; Hand Tools</div>
+        <div class="cat-brands">APL · Unbrako · Stanley · Everest · Taparia · TVS</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">02</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <div class="cat-name">Power &amp; Cutting Tools</div>
+        <div class="cat-brands">Bosch · DeWalt · Makita · Norton · Addison · Electrex</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">03</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h4v4H3zM3 10h4v4H3zM3 17h4v4H3zM10 3h11v4H10zM10 10h11v4H10zM10 17h11v4H10z"/></svg>
+        </div>
+        <div class="cat-name">Pneumatic &amp; Hydraulic</div>
+        <div class="cat-brands">Festo · Unoair · Janatics · SPAC · Chicago Pneumatic · Legris</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">04</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="cat-name">Paints, Brushes &amp; Locks</div>
+        <div class="cat-brands">Asian Paints · Berger · Kobe · Abro · Just Spray · Godrej</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">05</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="cat-name">Gauges &amp; Safety Items</div>
+        <div class="cat-brands">Baumer · WIKA · Karam · 3M · Tiger · Venus · Udyogi</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">06</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        </div>
+        <div class="cat-name">Adhesives, Plastics &amp; Tapes</div>
+        <div class="cat-brands">Loctite · Anabond · Pidilite · WD-40 · Fevicol · Fevikwik</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">07</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="1"/><line x1="12" y1="23" x2="12" y2="21"/><line x1="4.22" y1="4.22" x2="2.81" y2="2.81"/><line x1="21.19" y1="21.19" x2="19.78" y2="19.78"/></svg>
+        </div>
+        <div class="cat-name">Welding Products &amp; Bearings</div>
+        <div class="cat-brands">ESAB · Oerlikon · Superon · SKF · Timken · NTN · FAG · Koyo</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">08</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="cat-name">Trolley Wheels &amp; Storage</div>
+        <div class="cat-brands">Hand trolleys · Platform trolleys · Casters · Sintex · Storage bins</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact">
+        <div class="cat-num">09</div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3"/><path d="M12 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+        </div>
+        <div class="cat-name">Housekeeping Products</div>
+        <div class="cat-brands">Cleaning equipment · Mops · Brushes · Surface cleaners</div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <a class="cat-card" href="#contact" style="grid-column: span 2;">
+        <div class="cat-num" style="font-size:36px; float:left; margin-right: 28px; line-height:1;">10</div>
+        <div style="overflow:hidden;">
+          <div class="cat-icon" style="display:inline-flex; margin-bottom:12px;">
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="cat-name">Valves, PVC Pipes &amp; Fittings</div>
+          <div class="cat-brands">Jindal · Zoloto · Kitz · Rubinetterie Bresciane · Finolex · Astral</div>
+        </div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <h2 class="about-headline">Your<br>Industrial<br><em>Partner.</em></h2>
+      </div>
+      <div>
+        <p class="about-body">
+          Tools &amp; Metal Syndicate has been Chennai's trusted name in industrial and engineering supplies for decades. Located in the heart of the city at Thambu Chetty Street, we serve manufacturers, contractors, and businesses across Tamil Nadu with genuine products from the world's leading brands.
+        </p>
+        <div class="about-facts">
+          <div class="fact-item">
+            <div class="fact-label">Address</div>
+            <div class="fact-value">#216 (Old No. 226), Thambu Chetty St, Chennai 600 001</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Email</div>
+            <div class="fact-value">toolmetsyn@gmail.com</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Phone</div>
+            <div class="fact-value">+91 98401 71790<br>+91 80724 98859</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Speciality</div>
+            <div class="fact-value">Engineering &amp; Industrial Brands</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Why Choose Us</div>
+        <h2 class="section-title">The TMS<br>Advantage</h2>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="why-title">Genuine Products</div>
+        <div class="why-desc">We are authorized stockists for all major brands. Every product sourced is 100% authentic — no substitutes, no grey-market items.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div class="why-title">One-Point Sourcing</div>
+        <div class="why-desc">Stop managing multiple vendors. We stock 10+ product categories under one roof — saving you time, effort and procurement cost.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="why-title">Expert Guidance</div>
+        <div class="why-desc">Our team understands your industry's requirements. We help you pick the right product for the right application, every time.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="why-title">Fast Fulfillment</div>
+        <div class="why-desc">We maintain deep inventory of fast-moving items. Walk in or call — most orders are ready same day from our Chennai store.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--surface);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Get in Touch</div>
+        <h2 class="section-title">Request a<br>Quote</h2>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form-wrap">
+        <form id="enquiry-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">Name</label>
+              <input class="form-input" type="text" id="fname" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fcompany">Company</label>
+              <input class="form-input" type="text" id="fcompany" placeholder="Your company">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fphone">Phone</label>
+              <input class="form-input" type="tel" id="fphone" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="femail">Email</label>
+              <input class="form-input" type="email" id="femail" placeholder="you@company.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fcategory">Product Category</label>
+            <select class="form-select" id="fcategory">
+              <option value="">Select category...</option>
+              <option>Fasteners &amp; Hand Tools</option>
+              <option>Power &amp; Cutting Tools</option>
+              <option>Pneumatic &amp; Hydraulic Fittings</option>
+              <option>Paints, Brushes &amp; Locks</option>
+              <option>Gauges &amp; Safety Items</option>
+              <option>Adhesives, Plastics &amp; Tapes</option>
+              <option>Welding Products &amp; Bearings</option>
+              <option>Trolley Wheels &amp; Storage</option>
+              <option>Housekeeping Products</option>
+              <option>Valves, Pipes &amp; Fittings</option>
+              <option>Multiple / Others</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fmsg">Message / Requirements</label>
+            <textarea class="form-textarea" id="fmsg" placeholder="Describe what you need — brand, quantity, specs..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; text-align:center; font-size:13px;">Send Enquiry</button>
+        </form>
+        <div class="form-success" id="form-success">
+          ✓ &nbsp; Thank you! We've received your enquiry. Our team will contact you shortly.
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-info-block">
+          <div class="ci-label">Visit Us</div>
+          <div class="ci-value">#216 (Old No. 226),<br>Thambu Chetty Street,<br>Chennai — 600 001</div>
+        </div>
+        <div class="contact-info-block">
+          <div class="ci-label">Call Us</div>
+          <div class="ci-value">
+            <a href="tel:+919840171790">+91 98401 71790</a><br>
+            <a href="tel:+918072498859">+91 80724 98859</a>
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="ci-label">Email Us</div>
+          <div class="ci-value">
+            <a href="mailto:toolmetsyn@gmail.com">toolmetsyn@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="footer-logo-mark">tms</div>
+    Tools &amp; Metal Syndicate
+  </div>
+  <span>© 2024 Tools &amp; Metal Syndicate, Chennai. All rights reserved.</span>
+  <span>Your Industrial Supplier</span>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('enquiry-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
